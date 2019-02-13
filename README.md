@@ -1,6 +1,6 @@
 # modao
 
-npm install 安装需要的包
+npm install 安装需要的依赖
 
 npm run start 运行项目
 
