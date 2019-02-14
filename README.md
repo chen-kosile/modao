@@ -14,3 +14,7 @@ npm run start 运行项目
     - container App 页面
     - data 假数据
     - static 静态资源
+    - store redux 通过redux来管理select状态
+      - actions
+      - reducers
+      - constant
