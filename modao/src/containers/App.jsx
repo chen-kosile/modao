@@ -30,6 +30,13 @@ class App extends Component {
     const selectActions = this.props.selectActions;
 
     let datas = data;
+    datas = this.judge(value, datas);
+    selectActions.change(value);
+    this.setState({
+      datas
+    });
+  }
+  judge = (value, datas) => {
     if (value === "lock") {
       datas = datas.filter((item) => {
         return item.lock;
@@ -39,10 +46,7 @@ class App extends Component {
         return item.private;
       })
     }
-    selectActions.change(value);
-    this.setState({
-      datas
-    });
+    return datas
   }
   handleAdd = () => {
     let datas = data;
