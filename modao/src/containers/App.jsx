@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+
 import Select from '../components/Select';
 import List from '../components/List';
 import { data } from '../data/data';
+import * as selectActions from '../store/actions/select'
 
 import './App.css'
 
@@ -9,34 +13,36 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      value: 'all',
       datas: data
     }
   }
   render() {
+    const value = this.props.select.value;
     return (
       <div className="App">
-        <Select value={this.state.value} handleChange={ this.handleChange }/>
-        <List value={ this.state.value } datas={ this.state.datas } handleAdd={ this.handleAdd }/>
+        <Select value={ value } handleChange={ this.handleChange }/>
+        <List value={ value } datas={ this.state.datas } handleAdd={ this.handleAdd }/>
       </div>
     )
   }
   handleChange = (event) => {
     const value = event.target.value;
+    const selectActions = this.props.selectActions;
+
     let datas = data;
     if (value === "lock") {
       datas = datas.filter((item) => {
-        return item.lock === true;
+        return item.lock;
       })
     } else if (value === "private") {
       datas = datas.filter((item) => {
-        return item.private === true;
+        return item.private;
       })
     }
+    selectActions.change(value);
     this.setState({
-      value: event.target.value,
       datas
-    })
+    });
   }
   handleAdd = () => {
     let datas = data;
@@ -44,17 +50,40 @@ class App extends Component {
       id: 5,
       name: "测试",
       color: "red",
-      private: false,
-      lock: false,
+      private: true,
+      lock: true,
       number: 4,
     }
     datas.push(item);
     this.setState({
       datas
-    })
+    });
   }
 }
 
-export default App;
+function mapStateToProps (state) {
+  return {
+    select: state.select
+  }
+}
+
+// function mapDispatchToProps (dispatch) {
+//   return {
+//     select: (value) => {
+//       dispatch(selectActions.change(value))
+//     }
+//   }
+// }
+
+function mapDispatchToProps (dispatch) {
+  return {
+    selectActions: bindActionCreators(selectActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 
 
