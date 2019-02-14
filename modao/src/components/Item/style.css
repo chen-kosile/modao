@@ -3,12 +3,12 @@
   margin: 20px 0 0 20px;
   height: 120px;
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 5px;
   box-shadow: 0 0 10px 5px #E6E6E6;
   display: flex;
 }
 .item:hover {
-  box-shadow: 0 0 10px 5px #BABEBF;
+  box-shadow: 0px 10px 10px #D9DBDC;
 }
 .left {
   width: 20%;
@@ -28,6 +28,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 15px;
 }
 .right .icon {
   height: 40%;

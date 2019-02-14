@@ -2,7 +2,7 @@ export const data = [
   {
     id: 1,
     name: "墨刀实验室",
-    color: "green",
+    color: "#80D294",
     private: false,
     lock: false,
     number: 3,
@@ -10,7 +10,7 @@ export const data = [
   {
     id: 2,
     name: "墨刀魔法棒团队",
-    color: "orange",
+    color: "#F7C273",
     private: false,
     lock: false,
     number: 0,
@@ -18,7 +18,7 @@ export const data = [
   {
     id: 3,
     name: "超级工作室",
-    color: "green",
+    color: "#F18F8C",
     private: true,
     lock: false,
     number: 4,
@@ -26,7 +26,7 @@ export const data = [
   {
     id: 4,
     name: "冷笑客服组",
-    color: "red",
+    color: "#E27F72",
     private: false,
     lock: false,
     number: 4,
@@ -34,7 +34,7 @@ export const data = [
   {
     id: 5,
     name: "设计部门",
-    color: "orange",
+    color: "#F7C666",
     private: false,
     lock: false,
     number: 4,
@@ -42,7 +42,7 @@ export const data = [
   {
     id: 6,
     name: "Third Reactor",
-    color: "blue",
+    color: "#8CC9EA",
     private: true,
     lock: true,
     number: 3,

@@ -26,7 +26,7 @@ class App extends Component {
     )
   }
   handleChange = (event) => {
-    const value = event.target.value;
+    const value = event.target.getAttribute("value");
     const selectActions = this.props.selectActions;
 
     let datas = data;
